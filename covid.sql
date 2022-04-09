@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bookingpatient` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL UNIQUE PRIMARY KEY,
   `srfid` varchar(50) NOT NULL,
   `bedtype` varchar(50) NOT NULL,
   `hcode` varchar(50) NOT NULL,
@@ -50,6 +50,8 @@ CREATE TABLE `hospitaldata` (
   `hicubed` int(11) NOT NULL,
   `icubed` int(11) NOT NULL,
   `vbed` int(11) NOT NULL
+  PRIMARY KEY (hcode), 
+  FOREIGN KEY (id) REFERENCES bookingpatient (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
